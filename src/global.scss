@@ -1,0 +1,74 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/inter.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Eurostile";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/eurostile.woff2") format("woff2");
+}
+
+:root {
+  --color-light: 255 255 255;
+  --color-dark: 0 0 0;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+body {
+  --color-background: var(--color-light);
+  --color-foreground: var(--color-dark);
+  --color-primary: 24 139 230;
+
+  &[data-theme="dark"] {
+    --color-background: var(--color-dark);
+    --color-foreground: var(--color-light);
+    --color-primary: 25 113 194;
+
+    color-scheme: dark;
+  }
+
+  color-scheme: light;
+  line-height: inherit;
+  font-family: "Inter", sans-serif;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+h1 {
+  font-family: "Eurostile", sans-serif;
+  letter-spacing: 1.5px;
+}

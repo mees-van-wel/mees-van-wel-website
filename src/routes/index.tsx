@@ -1,16 +1,17 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import Image from "~/assets/images/mees.jpg?jsx";
+import styles from "./index.module.scss";
+import { BlobArt } from "~/components/svg/blob";
 
 export default component$(() => {
   return (
-    <>
-      <h1>Hi 👋</h1>
-      <p>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
-      </p>
-    </>
+    <div style={{ height: 2000 }}>
+      <div class={styles.image}>
+        <BlobArt class={styles.imageBlob} />
+        <Image class={styles.imageMees} />
+      </div>
+    </div>
   );
 });
 

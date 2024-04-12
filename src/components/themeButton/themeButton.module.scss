@@ -1,0 +1,68 @@
+.root {
+  position: relative;
+  height: 2rem;
+  width: 3.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    .icon {
+      left: -0.5rem;
+    }
+  }
+
+  .iconMoon {
+    opacity: 0;
+  }
+
+  &.rootDark {
+    .iconMoon {
+    opacity: 1;
+    }
+
+    .iconSun {
+    opacity: 0;
+    }
+
+    &:hover {
+      .icon {
+        left: calc(100% - 1rem);
+      }
+    }
+  }
+}
+
+.track {
+  width: 0;
+  border: solid 2px rgb(var(--color-foreground));
+  border-radius: 1rem;
+  height: 1rem;
+  transition: width ease-in-out 300ms;
+
+  .root:hover & {
+    width: 100%;
+  }
+}
+
+.icon {
+  width: 2rem;
+  height: auto;
+  position: absolute;
+  left: calc(50% - 1rem);
+  top: 0;
+  bottom: 0;
+  background-color: rgb(var(--color-background));
+  border: solid 2px rgb(var(--color-foreground));
+  color: rgb(var(--color-foreground));
+  border-radius: 100%;
+  transition: left ease-in-out 300ms;
+  display: grid;
+  place-items: center;
+
+  &Svg {
+    transition: opacity 300ms ease-in-out;
+    position: absolute;
+  }
+}

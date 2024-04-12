@@ -1,5 +1,13 @@
-import { component$, Slot } from "@builder.io/qwik";
+import {
+  component$,
+  createContextId,
+  Slot,
+  useContextProvider,
+  useStore,
+} from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import styles from "./layout.module.scss";
+import { Header } from "~/components/header";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -12,6 +20,28 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+type GlobalContext = {
+  darkTheme: boolean;
+  language: string;
+};
+
+export const GlobalContext =
+  createContextId<GlobalContext>("docs.theme-context");
+
 export default component$(() => {
-  return <Slot />;
+  const globalContext = useStore<GlobalContext>({
+    darkTheme: false,
+    language: "en-US",
+  });
+
+  useContextProvider(GlobalContext, globalContext);
+
+  return (
+    <div class={styles.root}>
+      <Header />
+      <main class={styles.main}>
+        <Slot />
+      </main>
+    </div>
+  );
 });

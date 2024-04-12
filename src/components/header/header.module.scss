@@ -1,0 +1,120 @@
+.root {
+  position: sticky;
+  z-index: 1;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(var(--color-foreground));
+  padding-right: 1.5rem;
+  backdrop-filter: blur(8px) saturate(180%);
+  background-color: rgb(var(--color-background) / 40%);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 0 auto;
+
+  animation: Scrolled 1s linear forwards;
+  animation-play-state: paused;
+  animation-delay: calc(var(--scroll) * -1s);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+@keyframes Scrolled {
+  from {
+    top: 1rem;
+    margin: 0 1rem;
+  }
+
+  to {
+    top: 2rem;
+    margin: 0 8rem;
+  }
+}
+
+.title {
+  margin: 0;
+}
+
+.mees {
+  background-color: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  display: inline-block;
+  padding: 1rem;
+  border-bottom: 2px solid rgb(var(--color-foreground));
+}
+
+.navigation {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  padding: 0.5rem 0;
+
+  &Item {
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    display: inline-block;
+  }
+
+  &Current {
+    display: none;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+
+    &Border {
+      position: absolute;
+
+      &Top {
+        top: 0;
+        left: 0;
+        right: 25%;
+        height: 1px;
+        // background-color: rgb(var(--color-foreground));
+        background: linear-gradient(
+          to right,
+          rgb(var(--color-foreground)),
+          rgb(var(--color-background))
+        );
+      }
+
+      &Right {
+        top: 75%;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: rgb(var(--color-foreground));
+      }
+
+      &Bottom {
+        bottom: 0;
+        left: 25%;
+        right: 0;
+        height: 1px;
+        background-color: rgb(var(--color-foreground));
+        background: linear-gradient(
+          to left,
+          rgb(var(--color-foreground)),
+          rgb(var(--color-background))
+        );
+      }
+
+      &Left {
+        top: 0;
+        left: 0;
+        bottom: 75%;
+        width: 1px;
+        background-color: rgb(var(--color-foreground));
+      }
+    }
+  }
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

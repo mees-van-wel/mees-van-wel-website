@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 24px;
+}
+
+.burger {
+  background-color: rgb(var(--color-foreground));
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+}
